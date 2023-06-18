@@ -38,7 +38,7 @@ const getColoredAxis = color => {
 };
 
 //const NeighborhoodApp = () => {
-const NeighborhoodChart = ({ featuredNeighborhoods }) => {
+const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) => {
 
     let allChartData = [];
     const colors = {
@@ -85,7 +85,9 @@ const NeighborhoodChart = ({ featuredNeighborhoods }) => {
                     //  neighborhood['color']
                     return (
                         <button
-                            style={{ backgroundColor: getColor(neighborhood) }} >
+                            onClick={(e) => handleNeighborhoodClick(e, neighborhood["neighborhoodId"], neighborhood["id"], neighborhood["data"])}
+                            style={{ backgroundColor: getColor(neighborhood) }} 
+                            >
                             {neighborhood['id']}
                         </button>
                     )

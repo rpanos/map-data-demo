@@ -63,6 +63,7 @@ const NeighborhoodApp = () => {
             />
             <NeighborhoodChart
                 featuredNeighborhoods={featuredNeighborhoods}
+                handleNeighborhoodClick={handleNeighborhoodClick}
             />
         </div>
     ) : <></>
