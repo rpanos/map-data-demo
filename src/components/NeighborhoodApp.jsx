@@ -21,49 +21,49 @@ const NeighborhoodApp = () => {
 
     React.useEffect(() => {
 
-        const newData = getNeighborhoodData({limit: 200, minSize: minSize, minTot: minTot}) //, sortBy: "total"
+        const newData = getNeighborhoodData({ limit: 200, minSize: minSize, minTot: minTot }) //, sortBy: "total"
         if (newData && newData.length) {
-          console.log("newData is now ", newData.length);
+            console.log("newData is now ", newData.length);
         }
         setNeighborhoods(newData);
-      }, [minSize, minTot]); 
+    }, [minSize, minTot]);
 
-      const handleMinTot=(e) => {
+    const handleMinTot = (e) => {
         setMinTot(e.target.value)
-      }
-      const handleMinSize=(e) => {
+    }
+    const handleMinSize = (e) => {
         setMinSize(e.target.value)
-      }
+    }
 
-      const handleNeighborhoodClick = (e, id, name, chartData) => {
+    const handleNeighborhoodClick = (e, id, name, chartData) => {
         if (!featuredNeighborhoods[id]) {
-          const newFeaturedNeighborhoods = {...featuredNeighborhoods}; // confirm!  Do deep copy?
-          newFeaturedNeighborhoods[id] = { chartData, name };
-          setFeaturedNeighborhoods(newFeaturedNeighborhoods)
+            const newFeaturedNeighborhoods = { ...featuredNeighborhoods }; // confirm!  Do deep copy?
+            newFeaturedNeighborhoods[id] = { chartData, name };
+            setFeaturedNeighborhoods(newFeaturedNeighborhoods)
         } else {
-          const newFeaturedNeighborhoods = {...featuredNeighborhoods};
-          delete newFeaturedNeighborhoods[id];
-          setFeaturedNeighborhoods(newFeaturedNeighborhoods)
+            const newFeaturedNeighborhoods = { ...featuredNeighborhoods };
+            delete newFeaturedNeighborhoods[id];
+            setFeaturedNeighborhoods(newFeaturedNeighborhoods)
         }
-      }
+    }
 
-      return isLoaded ? (
+    return isLoaded ? (
         <div className="appContainer">
-            <MapFilter 
+            <MapFilter
                 minTot={minTot}
                 handleMinTot={handleMinTot}
                 minSize={minSize}
                 handleMinSize={handleMinSize}
             />
-          
+
             <LeafletMap
                 neighborhoodsData={neighborhoods}
                 handleNeighborhoodClick={handleNeighborhoodClick}
                 featuredNeighborhoods={featuredNeighborhoods}
-                />
-          <NeighborhoodChart
-            featuredNeighborhoods={featuredNeighborhoods}
-          />
+            />
+            <NeighborhoodChart
+                featuredNeighborhoods={featuredNeighborhoods}
+            />
         </div>
     ) : <></>
 
