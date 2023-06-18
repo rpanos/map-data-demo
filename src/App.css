@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* //// */
+
+.appContainer {
+  display: flex;
+}
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
+.mapContainter {
+  width: 600px;
+}
