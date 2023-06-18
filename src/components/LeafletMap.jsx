@@ -11,6 +11,7 @@ const LeafletMap = ({neighborhoodsData, featuredNeighborhoods, handleNeighborhoo
     const zoomLevel = 12;
 
     return (
+      <div className="mapContainter">
     <MapContainer 
         center={initialCenter} 
         zoom={zoomLevel} 
@@ -37,6 +38,7 @@ const LeafletMap = ({neighborhoodsData, featuredNeighborhoods, handleNeighborhoo
             />)
         })}   
     </MapContainer>
+    </div>
     )
 }
 

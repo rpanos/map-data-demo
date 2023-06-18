@@ -4,6 +4,7 @@ import { useJsApiLoader } from '@react-google-maps/api';
 import getNeighborhoodData from '../api/neighborhoodAPI'
 import LeafletMap from './LeafletMap'
 import MapFilter from './MapFilter'
+import NeighborhoodChart from './NeighborhoodChart'
 import '../App.css'; // TEMP!
 
 const NeighborhoodApp = () => {
@@ -13,7 +14,7 @@ const NeighborhoodApp = () => {
     })
 
     const [neighborhoods, setNeighborhoods] = React.useState([])
-    const [featuredNeighborhoods, setFeaturedNeighborhoodProperties] = React.useState({})
+    const [featuredNeighborhoods, setFeaturedNeighborhoods] = React.useState({})
 
     const [minTot, setMinTot] = React.useState(null)
     const [minSize, setMinSize] = React.useState(null)
@@ -36,13 +37,13 @@ const NeighborhoodApp = () => {
 
       const handleNeighborhoodClick = (e, id, name, chartData) => {
         if (!featuredNeighborhoods[id]) {
-          const newFeaturedNeighborhoodProperties = {...featuredNeighborhoods}; // confirm!  Do deep copy?
-          newFeaturedNeighborhoodProperties[id] = { chartData, name };
-          setFeaturedNeighborhoodProperties(newFeaturedNeighborhoodProperties)
+          const newFeaturedNeighborhoods = {...featuredNeighborhoods}; // confirm!  Do deep copy?
+          newFeaturedNeighborhoods[id] = { chartData, name };
+          setFeaturedNeighborhoods(newFeaturedNeighborhoods)
         } else {
-          const newFeaturedNeighborhoodProperties = {...featuredNeighborhoods};
-          delete newFeaturedNeighborhoodProperties[id];
-          setFeaturedNeighborhoodProperties(newFeaturedNeighborhoodProperties)
+          const newFeaturedNeighborhoods = {...featuredNeighborhoods};
+          delete newFeaturedNeighborhoods[id];
+          setFeaturedNeighborhoods(newFeaturedNeighborhoods)
         }
       }
 
@@ -54,14 +55,15 @@ const NeighborhoodApp = () => {
                 minSize={minSize}
                 handleMinSize={handleMinSize}
             />
-          <div className="mapContainter">
+          
             <LeafletMap
                 neighborhoodsData={neighborhoods}
                 handleNeighborhoodClick={handleNeighborhoodClick}
                 featuredNeighborhoods={featuredNeighborhoods}
-                >
-            </LeafletMap>
-          </div>
+                />
+          <NeighborhoodChart
+            featuredNeighborhoods={featuredNeighborhoods}
+          />
         </div>
     ) : <></>
 
