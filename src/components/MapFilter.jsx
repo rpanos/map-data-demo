@@ -12,9 +12,12 @@ function MapFilter({ minSize, handleMinSize, minTot, handleMinTot }) {
       {/* <label>Limit: </label>
           <input type="text" value={limit}></input> */}
       <div className='filterField'>
-        <label>Minimum Neighborhood Size: </label>
-        <Form.Select aria-label="Minimum Neighborhood Size" value={minSize} onChange={handleMinSize}>
-          <option value="0">Open this select menu</option>
+        <label id="neighborhoodSizeLabel">Minimum Neighborhood Size:</label>
+        <Form.Select
+          aria-labelledby="neighborhoodSizeLabel"
+          value={minSize}
+          onChange={handleMinSize}>
+          <option value="0">No Filter</option>
           <option value="400000">Small</option>
           <option value="800000">Medium</option>
           <option value="1200000">Large</option>
@@ -22,9 +25,12 @@ function MapFilter({ minSize, handleMinSize, minTot, handleMinTot }) {
         </Form.Select>
       </div>
       <div className='filterField'>
-        <label>Minimum Total Accidents: </label>
-        <Form.Select aria-label="Minimum Total Accidents" value={minTot} onChange={handleMinTot}>
-          <option value="0">Open this select menu</option>
+        <label id="totalAccidentLabel">Minimum Total Accidents:</label>
+          <Form.Select
+          aria-labelledby="totalAccidentLabel"
+          value={minTot}
+          onChange={handleMinTot}>
+          <option value="0">No Filter</option>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>

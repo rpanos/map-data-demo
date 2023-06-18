@@ -41,17 +41,17 @@ const getColoredAxis = color => {
 const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) => {
 
     let allChartData = [];
-    const colors = {
-        // '2017': 'red', '2018': 'red', '2019': 'green' 
-    }
-    const getColor = neighborhood => colors[neighborhood.id];
-    if (featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0) {
+    const colorMap = {}
+    const getColor = neighborhood => colorMap[neighborhood.id];
 
+    // We transform the data structure sent in props to one that nivo expects and then reuses 
+    // it when building the buttons.  Given more time, I might have made the format more of a 
+    // compromise between the map and chart data formats such that this transform was simpler
+    if (featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0) {
         Object.keys(featuredNeighborhoods).forEach((featuredNieghborhoodId, index) => {
-            colors[featuredNeighborhoods[featuredNieghborhoodId]['name']] = colorArray[index];
+            colorMap[featuredNeighborhoods[featuredNieghborhoodId]['name']] = colorArray[index];
             allChartData.push({
-                "id": featuredNeighborhoods[featuredNieghborhoodId]['name'],  // SAME ID?
-                //   "color": colorArray[index],
+                "id": featuredNeighborhoods[featuredNieghborhoodId]['name'],
                 "neighborhoodId": featuredNieghborhoodId,
                 "data": featuredNeighborhoods[featuredNieghborhoodId]['chartData']
             });
@@ -66,7 +66,6 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
                     <ResponsiveLine
                         data={allChartData}
                         colors={getColor}
-                        // colorArray/
                         layers={["grid", "axes", "lines", "markers", "legends", 'slices']}
                         axisLeft={{
                             legend: "Accidents Per Year",

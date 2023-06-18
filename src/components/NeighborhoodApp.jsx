@@ -55,7 +55,6 @@ const NeighborhoodApp = () => {
                 minSize={minSize}
                 handleMinSize={handleMinSize}
             />
-
             <LeafletMap
                 neighborhoodsData={neighborhoods}
                 handleNeighborhoodClick={handleNeighborhoodClick}
