@@ -3,6 +3,7 @@ import { useJsApiLoader } from '@react-google-maps/api';
 
 import getNeighborhoodData from '../api/neighborhoodAPI'
 import LeafletMap from './LeafletMap'
+import MapFilter from './MapFilter'
 import '../App.css'; // TEMP!
 
 const NeighborhoodApp = () => {
@@ -14,14 +15,24 @@ const NeighborhoodApp = () => {
     const [neighborhoods, setNeighborhoods] = React.useState([])
     const [featuredNeighborhoods, setFeaturedNeighborhoodProperties] = React.useState({})
 
+    const [minTot, setMinTot] = React.useState(null)
+    const [minSize, setMinSize] = React.useState(null)
+
     React.useEffect(() => {
 
-        const newData = getNeighborhoodData({limit: 200, minSize: 200000, minTot: 5}) //, sortBy: "total"
+        const newData = getNeighborhoodData({limit: 200, minSize: minSize, minTot: minTot}) //, sortBy: "total"
         if (newData && newData.length) {
           console.log("newData is now ", newData.length);
         }
         setNeighborhoods(newData);
-      }, []); 
+      }, [minSize, minTot]); 
+
+      const handleMinTot=(e) => {
+        setMinTot(e.target.value)
+      }
+      const handleMinSize=(e) => {
+        setMinSize(e.target.value)
+      }
 
       const handleNeighborhoodClick = (e, id, name, chartData) => {
         if (!featuredNeighborhoods[id]) {
@@ -37,13 +48,18 @@ const NeighborhoodApp = () => {
 
       return isLoaded ? (
         <div className="appContainer">
-        
+            <MapFilter 
+                minTot={minTot}
+                handleMinTot={handleMinTot}
+                minSize={minSize}
+                handleMinSize={handleMinSize}
+            />
           <div className="mapContainter">
             <LeafletMap
-              neighborhoodsData={neighborhoods}
-              handleNeighborhoodClick={handleNeighborhoodClick}
-              featuredNeighborhoods={featuredNeighborhoods}
-              >
+                neighborhoodsData={neighborhoods}
+                handleNeighborhoodClick={handleNeighborhoodClick}
+                featuredNeighborhoods={featuredNeighborhoods}
+                >
             </LeafletMap>
           </div>
         </div>
