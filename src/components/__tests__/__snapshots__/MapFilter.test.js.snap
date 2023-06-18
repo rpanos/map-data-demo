@@ -1,0 +1,526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="filterContainter"
+  >
+    <div
+      class="filterField"
+    >
+      <label
+        id="neighborhoodSizeLabel"
+      >
+        Minimum Neighborhood Sizes:
+      </label>
+      <select
+        aria-labelledby="neighborhoodSizeLabel"
+        class="form-select"
+        data-testid="neighborhood-size-select"
+      >
+        <option
+          data-testid="neighborhood-size-option"
+          value="0"
+        >
+          Open this select menu
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="400000"
+        >
+          Small
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="800000"
+        >
+          Medium
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1200000"
+        >
+          Large
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1600000"
+        >
+          Mega Large
+        </option>
+      </select>
+    </div>
+    <div
+      class="filterField"
+    >
+      <label
+        id="totalAccidentLabel"
+      >
+        Minimum Total Accidents:
+      </label>
+      <select
+        aria-labelledby="totalAccidentLabel"
+        class="form-select"
+        data-testid="tot-accident-select"
+      >
+        <option
+          data-testid="tot-accident-option"
+          value="0"
+        >
+          No Filter
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="5"
+        >
+          5
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="10"
+        >
+          10
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="15"
+        >
+          15
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="20"
+        >
+          20
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="25"
+        >
+          25
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`will not fail if an improper size is sent in minSize 1`] = `
+<DocumentFragment>
+  <div
+    class="filterContainter"
+  >
+    <div
+      class="filterField"
+    >
+      <label
+        id="neighborhoodSizeLabel"
+      >
+        Minimum Neighborhood Sizes:
+      </label>
+      <select
+        aria-labelledby="neighborhoodSizeLabel"
+        class="form-select"
+        data-testid="neighborhood-size-select"
+      >
+        <option
+          data-testid="neighborhood-size-option"
+          value="0"
+        >
+          Open this select menu
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="400000"
+        >
+          Small
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="800000"
+        >
+          Medium
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1200000"
+        >
+          Large
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1600000"
+        >
+          Mega Large
+        </option>
+      </select>
+    </div>
+    <div
+      class="filterField"
+    >
+      <label
+        id="totalAccidentLabel"
+      >
+        Minimum Total Accidents:
+      </label>
+      <select
+        aria-labelledby="totalAccidentLabel"
+        class="form-select"
+        data-testid="tot-accident-select"
+      >
+        <option
+          data-testid="tot-accident-option"
+          value="0"
+        >
+          No Filter
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="5"
+        >
+          5
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="10"
+        >
+          10
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="15"
+        >
+          15
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="20"
+        >
+          20
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="25"
+        >
+          25
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`will not fail if an improper size is sent in minTot 1`] = `
+<DocumentFragment>
+  <div
+    class="filterContainter"
+  >
+    <div
+      class="filterField"
+    >
+      <label
+        id="neighborhoodSizeLabel"
+      >
+        Minimum Neighborhood Sizes:
+      </label>
+      <select
+        aria-labelledby="neighborhoodSizeLabel"
+        class="form-select"
+        data-testid="neighborhood-size-select"
+      >
+        <option
+          data-testid="neighborhood-size-option"
+          value="0"
+        >
+          Open this select menu
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="400000"
+        >
+          Small
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="800000"
+        >
+          Medium
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1200000"
+        >
+          Large
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1600000"
+        >
+          Mega Large
+        </option>
+      </select>
+    </div>
+    <div
+      class="filterField"
+    >
+      <label
+        id="totalAccidentLabel"
+      >
+        Minimum Total Accidents:
+      </label>
+      <select
+        aria-labelledby="totalAccidentLabel"
+        class="form-select"
+        data-testid="tot-accident-select"
+      >
+        <option
+          data-testid="tot-accident-option"
+          value="0"
+        >
+          No Filter
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="5"
+        >
+          5
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="10"
+        >
+          10
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="15"
+        >
+          15
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="20"
+        >
+          20
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="25"
+        >
+          25
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`will select the choice properly w/ a normal minSize 1`] = `
+<DocumentFragment>
+  <div
+    class="filterContainter"
+  >
+    <div
+      class="filterField"
+    >
+      <label
+        id="neighborhoodSizeLabel"
+      >
+        Minimum Neighborhood Sizes:
+      </label>
+      <select
+        aria-labelledby="neighborhoodSizeLabel"
+        class="form-select"
+        data-testid="neighborhood-size-select"
+      >
+        <option
+          data-testid="neighborhood-size-option"
+          value="0"
+        >
+          Open this select menu
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="400000"
+        >
+          Small
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="800000"
+        >
+          Medium
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1200000"
+        >
+          Large
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1600000"
+        >
+          Mega Large
+        </option>
+      </select>
+    </div>
+    <div
+      class="filterField"
+    >
+      <label
+        id="totalAccidentLabel"
+      >
+        Minimum Total Accidents:
+      </label>
+      <select
+        aria-labelledby="totalAccidentLabel"
+        class="form-select"
+        data-testid="tot-accident-select"
+      >
+        <option
+          data-testid="tot-accident-option"
+          value="0"
+        >
+          No Filter
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="5"
+        >
+          5
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="10"
+        >
+          10
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="15"
+        >
+          15
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="20"
+        >
+          20
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="25"
+        >
+          25
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`will select the choice properly w/ a normal minTot 1`] = `
+<DocumentFragment>
+  <div
+    class="filterContainter"
+  >
+    <div
+      class="filterField"
+    >
+      <label
+        id="neighborhoodSizeLabel"
+      >
+        Minimum Neighborhood Sizes:
+      </label>
+      <select
+        aria-labelledby="neighborhoodSizeLabel"
+        class="form-select"
+        data-testid="neighborhood-size-select"
+      >
+        <option
+          data-testid="neighborhood-size-option"
+          value="0"
+        >
+          Open this select menu
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="400000"
+        >
+          Small
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="800000"
+        >
+          Medium
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1200000"
+        >
+          Large
+        </option>
+        <option
+          data-testid="neighborhood-size-option"
+          value="1600000"
+        >
+          Mega Large
+        </option>
+      </select>
+    </div>
+    <div
+      class="filterField"
+    >
+      <label
+        id="totalAccidentLabel"
+      >
+        Minimum Total Accidents:
+      </label>
+      <select
+        aria-labelledby="totalAccidentLabel"
+        class="form-select"
+        data-testid="tot-accident-select"
+      >
+        <option
+          data-testid="tot-accident-option"
+          value="0"
+        >
+          No Filter
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="5"
+        >
+          5
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="10"
+        >
+          10
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="15"
+        >
+          15
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="20"
+        >
+          20
+        </option>
+        <option
+          data-testid="tot-accident-option"
+          value="25"
+        >
+          25
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;

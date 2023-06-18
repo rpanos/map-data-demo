@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +39,8 @@
 
 /* //// */
 
+
+
 .filterContainter {
   width: 200px;
   height: 600px;
@@ -61,15 +63,19 @@
 }
 .mapContainter {
   width: 600px;
+
+  margin: 10px;
 }
 
 .chartContainter {
   width: 400px;
   height: 400px;
+
+  margin: 20px;
 }
 
 .chartButtonContainter {
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   /* // OVER FLOW? */
 }

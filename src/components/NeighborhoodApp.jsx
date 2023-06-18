@@ -16,15 +16,11 @@ const NeighborhoodApp = () => {
     const [neighborhoods, setNeighborhoods] = React.useState([])
     const [featuredNeighborhoods, setFeaturedNeighborhoods] = React.useState({})
 
-    const [minTot, setMinTot] = React.useState(null)
-    const [minSize, setMinSize] = React.useState(null)
+    const [minTot, setMinTot] = React.useState("0")
+    const [minSize, setMinSize] = React.useState("0")
 
     React.useEffect(() => {
-
         const newData = getNeighborhoodData({ limit: 200, minSize: minSize, minTot: minTot }) //, sortBy: "total"
-        if (newData && newData.length) {
-            console.log("newData is now ", newData.length);
-        }
         setNeighborhoods(newData);
     }, [minSize, minTot]);
 
