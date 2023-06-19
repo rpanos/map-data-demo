@@ -8,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 after cloning and then use the start command indicated below.
 
+## This repo will not run without a Google API key here:  
+https://github.com/rpanos/map-data-demo/blob/main/src/components/NeighborhoodApp.jsx#L13
+Please reach out to me for such information if you havent been given one.
+
 ## Available Scripts
 
 In the project directory, you can run:
