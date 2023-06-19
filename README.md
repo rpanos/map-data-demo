@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Patterns of Impared Driving
+## A quick demo of React skills using a map library and a D3 based charting library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) so all the typical scripts apply.
 
 ## Available Scripts
 
