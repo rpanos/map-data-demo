@@ -10,7 +10,7 @@ import '../App.css'; // temp: will move later
 const NeighborhoodApp = () => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'AIzaSyDxf4S4yOTXh7I9pHFX0af8x__83_rjovc'
+        googleMapsApiKey: 'GOOGLE KEY GOES HERE'
     })
 
     const [neighborhoods, setNeighborhoods] = React.useState([])
