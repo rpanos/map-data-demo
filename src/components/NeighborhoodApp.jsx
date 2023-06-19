@@ -44,7 +44,7 @@ const NeighborhoodApp = () => {
     }
 
     return isLoaded ? (
-        <div className="appContainer">
+        <div className="NeighborhoodApp-appContainer">
             <MapFilter
                 minTot={minTot}
                 handleMinTot={handleMinTot}

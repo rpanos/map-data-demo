@@ -1,15 +1,12 @@
 
 import React from 'react'
 import { ResponsiveLine } from "@nivo/line";
+import Button from 'react-bootstrap/Button';
 
 import '../App.css'; // TEMP!
 
-
-
-
-
 const line1Color = "blue";
-const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
+const diverseColorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
     '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
     '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
     '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
@@ -19,6 +16,10 @@ const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
     '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
     '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
     '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
+const colorArray = ['#18363E', '#5F97AA', '#2D5F6E', '#3E88A5', '#93C4D1']
+
+
 const getColoredAxis = color => {
     return {
         axis: {
@@ -37,7 +38,6 @@ const getColoredAxis = color => {
     };
 };
 
-//const NeighborhoodApp = () => {
 const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) => {
 
     let allChartData = [];
@@ -49,7 +49,7 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
     // compromise between the map and chart data formats such that this transform was simpler
     if (featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0) {
         Object.keys(featuredNeighborhoods).forEach((featuredNieghborhoodId, index) => {
-            colorMap[featuredNeighborhoods[featuredNieghborhoodId]['name']] = colorArray[index];
+            colorMap[featuredNeighborhoods[featuredNieghborhoodId]['name']] = colorArray[index % colorArray.length];
             allChartData.push({
                 "id": featuredNeighborhoods[featuredNieghborhoodId]['name'],
                 "neighborhoodId": featuredNieghborhoodId,
@@ -59,7 +59,7 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
     }
 
     return (
-        <div className="chartContainter">
+        <div className="NeighborhoodChart-chartContainter">
 
             {(featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0)
                 ? (
@@ -79,20 +79,21 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
                     >
                     </ResponsiveLine>
                 ) : <></>}
-            <div className="chartButtonContainter">
+            <div className="NeighborhoodChart-chartButtonContainter">
                 {allChartData.length > 0 && allChartData[0].id && allChartData.map((neighborhood) => {
-                    //  neighborhood['color']
                     return (
-                        <button
+                        <Button
                             onClick={(e) => handleNeighborhoodClick(e, neighborhood["neighborhoodId"], neighborhood["id"], neighborhood["data"])}
-                            style={{ backgroundColor: getColor(neighborhood) }} 
+                            className="NeighborhoodChart-neighborhood-button"
+                            size="sm"
+                            style={{ backgroundColor: getColor(neighborhood) }}
+                            key={"button" + neighborhood["neighborhoodId"]}
                             >
                             {neighborhood['id']}
-                        </button>
+                        </Button>
                     )
                 })}
             </div>
-
         </div>
     )
 
