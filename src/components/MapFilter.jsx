@@ -1,9 +1,10 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import '../App.css'; // TEMP!
 
-function MapFilter({ minSize, handleMinSize, minTot, handleMinTot }) {
+function MapFilter({ minSize, handleMinSize, minTot, handleMinTot, limit, handleLimit }) {
 
   return (
     <div className="MapFilter-filterContainter">
@@ -39,6 +40,14 @@ function MapFilter({ minSize, handleMinSize, minTot, handleMinTot }) {
           <option data-testid="tot-accident-option" value="25">25</option>
         </Form.Select>
       </div>
+      <InputGroup className="mb-3">
+        <InputGroup.Text>Number of neighborhoods:</InputGroup.Text>
+        <Form.Control 
+          aria-label="Limit (maximum number returned)" 
+          value={limit}
+          onChange={handleLimit}
+          />
+      </InputGroup>
     </div>
   )
 }

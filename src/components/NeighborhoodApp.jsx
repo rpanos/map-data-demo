@@ -18,17 +18,21 @@ const NeighborhoodApp = () => {
 
     const [minTot, setMinTot] = React.useState("0")
     const [minSize, setMinSize] = React.useState("0")
+    const [limit, setLimit] = React.useState("200")
 
-    React.useEffect(() => {
-        const newData = getNeighborhoodData({ limit: 200, minSize: minSize, minTot: minTot }) //, sortBy: "total"
+    React.useEffect(() => {                     // simplify  limit: limit, minSize: minSize, minTot: minTot
+        const newData = getNeighborhoodData({ limit, minSize, minTot }) //, sortBy: "total"
         setNeighborhoods(newData);
-    }, [minSize, minTot]);
+    }, [minSize, minTot, limit]);
 
     const handleMinTot = (e) => {
         setMinTot(e.target.value)
     }
     const handleMinSize = (e) => {
         setMinSize(e.target.value)
+    }
+    const handleLimit = (e) => {
+        setLimit(e.target.value)
     }
 
     const handleNeighborhoodClick = (e, id, name, chartData) => {
@@ -50,6 +54,8 @@ const NeighborhoodApp = () => {
                 handleMinTot={handleMinTot}
                 minSize={minSize}
                 handleMinSize={handleMinSize}
+                limit={limit}
+                handleLimit={handleLimit}
             />
             <LeafletMap
                 neighborhoodsData={neighborhoods}
