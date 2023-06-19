@@ -1,16 +1,16 @@
 import React from 'react'
 import { useJsApiLoader } from '@react-google-maps/api';
 
-import getNeighborhoodData from '../api/neighborhoodAPI'
+import getNeighborhoodData, {getNeighborhoodDataMax} from '../api/neighborhoodAPI'
 import LeafletMap from './LeafletMap'
 import MapFilter from './MapFilter'
 import NeighborhoodChart from './NeighborhoodChart'
-import '../App.css'; // TEMP!
+import '../App.css'; // temp: will move later
 
 const NeighborhoodApp = () => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyDxf4S4yOTXh7I9pHFX0af8x__83_rjovc"
+        googleMapsApiKey: 'AIzaSyDxf4S4yOTXh7I9pHFX0af8x__83_rjovc'
     })
 
     const [neighborhoods, setNeighborhoods] = React.useState([])
@@ -19,11 +19,14 @@ const NeighborhoodApp = () => {
     const [minTot, setMinTot] = React.useState("0")
     const [minSize, setMinSize] = React.useState("0")
     const [limit, setLimit] = React.useState("200")
+    const [sortBy, setSortBy] = React.useState("total")
+    const [maxSize, setMaxSize] = React.useState("200")
 
-    React.useEffect(() => {                     // simplify  limit: limit, minSize: minSize, minTot: minTot
-        const newData = getNeighborhoodData({ limit, minSize, minTot }) //, sortBy: "total"
-        setNeighborhoods(newData);
-    }, [minSize, minTot, limit]);
+    React.useEffect(() => {
+        setNeighborhoods(getNeighborhoodData({ limit, minSize, minTot, sortBy }));
+        // in reality, this does not change but it might in the case of a full app
+        setMaxSize(getNeighborhoodDataMax());
+    }, [minSize, minTot, sortBy, limit]);
 
     const handleMinTot = (e) => {
         setMinTot(e.target.value)
@@ -31,13 +34,16 @@ const NeighborhoodApp = () => {
     const handleMinSize = (e) => {
         setMinSize(e.target.value)
     }
+    const handleSortBy = (e) => {
+        setSortBy(e.target.value)
+    }
     const handleLimit = (e) => {
         setLimit(e.target.value)
     }
 
     const handleNeighborhoodClick = (e, id, name, chartData) => {
         if (!featuredNeighborhoods[id]) {
-            const newFeaturedNeighborhoods = { ...featuredNeighborhoods }; // confirm!  Do deep copy?
+            const newFeaturedNeighborhoods = { ...featuredNeighborhoods };
             newFeaturedNeighborhoods[id] = { chartData, name };
             setFeaturedNeighborhoods(newFeaturedNeighborhoods)
         } else {
@@ -54,8 +60,11 @@ const NeighborhoodApp = () => {
                 handleMinTot={handleMinTot}
                 minSize={minSize}
                 handleMinSize={handleMinSize}
+                sortby={sortBy}
+                handleSortBy={handleSortBy}
                 limit={limit}
                 handleLimit={handleLimit}
+                maxSize={maxSize}
             />
             <LeafletMap
                 neighborhoodsData={neighborhoods}

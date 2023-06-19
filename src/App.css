@@ -17,11 +17,16 @@
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+}
+.App-header div {
+  padding: 12px;
+  text-align:center;
 }
 
 .App-link {
@@ -39,20 +44,32 @@
 
 /* //// */
 
+.App-title {
+  height: 100%;
+}
+.NeighborhoodChart-chartContainter>div {
+  background-color: antiquewhite;
+}
+
 .NeighborhoodChart-neighborhood-button {
   min-width: 80px;
   padding: 6px;
   margin: 6px;
-
+  color: orangered;
+  font-weight: bold;
   border-radius: 4px;
 }
 
 .NeighborhoodApp-appContainer {
   display: flex;
+
+  background-color: rgb(147, 196, 209);
 }
 
 .MapFilter-instructions {
   font-size: 0.875em;
+  padding: 10px;
+  text-align: left;
 }
 
 .MapFilter-filterContainter {
@@ -62,7 +79,7 @@
 
 .MapFilter-filterField {
   display: flex;
-  height: 80px;
+  height: 60px;
   flex-direction: column;
   padding: 10px;
 }
@@ -74,8 +91,9 @@
 
 .LeafletMap-mapContainter {
   width: 600px;
-
+  min-width: 250px;
   margin: 10px;
+  max-height: 800px;
 }
 
 .NeighborhoodChart-chartContainter {
@@ -83,6 +101,10 @@
   height: 400px;
 
   margin: 20px;
+}
+
+.NeighborhoodChart-defaultInstructions {
+  padding: 30px;
 }
 
 .NeighborhoodChart-chartButtonContainter {

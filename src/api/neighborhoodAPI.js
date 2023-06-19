@@ -7,8 +7,7 @@ import data from './json/annotatedData_geojson_flop2.json';
     some basic filters using the data in the front end.
 */
 const getNeighborhoodData = ({minTot, limit, offset, minSize, sortBy}) => {
-    // copy so as to keep original in tack 
-    let dataCopy = JSON.parse(JSON.stringify(data)); // ['features']
+    let dataCopy = JSON.parse(JSON.stringify(data));
 
     if (minSize) {
         dataCopy = dataCopy.filter(neighborhood => neighborhood['properties']['shape_area'] > minSize);
@@ -32,8 +31,9 @@ const getNeighborhoodData = ({minTot, limit, offset, minSize, sortBy}) => {
 
     return dataCopy;
 }
-// console.log("TEST")
-// console.log(getNeighborhoodData({limit: 200, minSize: 200000, minTot: 5}));
 
+export const getNeighborhoodDataMax = () => {
+    return  data.length;
+}
 
 export default getNeighborhoodData;

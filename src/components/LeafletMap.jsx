@@ -1,15 +1,14 @@
 import React from 'react'
 import { MapContainer, TileLayer, Polygon } from 'react-leaflet'
-import '../App.css'; // TEMP!
+import '../App.css'; // temp: will move later
 
 const initialCenter = [
   38.908511,
   -77.005802
 ];
+const zoomLevel = 12;
 
 const LeafletMap = ({ neighborhoodsData, featuredNeighborhoods, handleNeighborhoodClick }) => {
-  const zoomLevel = 12;
-
   return (
     <div className="LeafletMap-mapContainter">
       <MapContainer
@@ -25,7 +24,7 @@ const LeafletMap = ({ neighborhoodsData, featuredNeighborhoods, handleNeighborho
         {neighborhoodsData.length > 0 && neighborhoodsData.map((nieghborhoodData) => {
           const polyOptions = { color: 'purple' };
           if (featuredNeighborhoods[nieghborhoodData["id"]]) {
-            polyOptions.color = 'orange'; // IMPROVE?
+            polyOptions.color = 'red'; // IMPROVE?
           }
 
           return (<Polygon

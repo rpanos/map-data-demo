@@ -1,9 +1,8 @@
-
 import React from 'react'
-import { ResponsiveLine } from "@nivo/line";
+import { ResponsiveLine } from '@nivo/line';
 import Button from 'react-bootstrap/Button';
 
-import '../App.css'; // TEMP!
+import '../App.css'; // temp: will move later
 
 const line1Color = "blue";
 const diverseColorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
@@ -17,8 +16,8 @@ const diverseColorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6'
     '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
     '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
 
+    // this is a blue theme but there are many out there that might have looked better.
 const colorArray = ['#18363E', '#5F97AA', '#2D5F6E', '#3E88A5', '#93C4D1']
-
 
 const getColoredAxis = color => {
     return {
@@ -42,9 +41,10 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
 
     let allChartData = [];
     const colorMap = {}
+    // This supposedly needs to be a function for ResponsiveLine . .. (TBD)
     const getColor = neighborhood => colorMap[neighborhood.id];
 
-    // We transform the data structure sent in props to one that nivo expects and then reuses 
+    // We transform the data structure sent in props to one that nivo expects and then reuse 
     // it when building the buttons.  Given more time, I might have made the format more of a 
     // compromise between the map and chart data formats such that this transform was simpler
     if (featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0) {
@@ -60,7 +60,6 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
 
     return (
         <div className="NeighborhoodChart-chartContainter">
-
             {(featuredNeighborhoods && Object.keys(featuredNeighborhoods).length > 0)
                 ? (
                     <ResponsiveLine
@@ -74,11 +73,11 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
                         }}
                         theme={getColoredAxis(line1Color)}
                         margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
-
                         enableSlices="x"
                     >
                     </ResponsiveLine>
-                ) : <></>}
+                ) 
+                : <div className='NeighborhoodChart-defaultInstructions'>Please click on a neighborhood.</div>}
             <div className="NeighborhoodChart-chartButtonContainter">
                 {allChartData.length > 0 && allChartData[0].id && allChartData.map((neighborhood) => {
                     return (
@@ -96,7 +95,6 @@ const NeighborhoodChart = ({ featuredNeighborhoods, handleNeighborhoodClick }) =
             </div>
         </div>
     )
-
 }
 
 export default NeighborhoodChart;

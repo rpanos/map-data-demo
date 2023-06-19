@@ -5,7 +5,14 @@ function App() {
   return (
     <>
     <header className="App-header">
-      <h2>An interacive exploration of impaired accident data in Washington DC</h2>
+      <div>
+      <h3 className="App-title">
+        Patterns of Impared Driving
+      </h3>
+      </div>
+      <div>
+      <h5>An interactive exploration of impaired accident data in Washington DC</h5>
+      </div>
     </header>
     <div className="App">
       <NeighborhoodApp/>
