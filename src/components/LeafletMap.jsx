@@ -22,9 +22,10 @@ const LeafletMap = ({ neighborhoodsData, featuredNeighborhoods, handleNeighborho
         />
 
         {neighborhoodsData.length > 0 && neighborhoodsData.map((nieghborhoodData) => {
-          const polyOptions = { color: 'purple' };
+          const polyOptions = { color: 'purple', fillOpacity: 0.25 };
           if (featuredNeighborhoods[nieghborhoodData["id"]]) {
             polyOptions.color = 'red'; // IMPROVE?
+            polyOptions.fillOpacity= 0.65 
           }
 
           return (<Polygon
