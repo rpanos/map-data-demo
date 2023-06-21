@@ -9,7 +9,6 @@ const LeafletPolygon = ({nieghborhoodData, handleNeighborhoodClick, polyOptions}
         eventHandlers={{
           click: (e) => handleNeighborhoodClick(e, nieghborhoodData["id"], nieghborhoodData["properties"]["name"], nieghborhoodData["chart_data"])
         }}
-        key={nieghborhoodData["id"]}
       />)
 }
 

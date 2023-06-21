@@ -33,6 +33,7 @@ const LeafletMap = ({ neighborhoodsData, featuredNeighborhoods, handleNeighborho
             nieghborhoodData = {nieghborhoodData}
             handleNeighborhoodClick = {handleNeighborhoodClick}
             polyOptions = {polyOptions}
+            key={nieghborhoodData["id"]}
             />);
         })}
       </MapContainer>
